@@ -1,3 +1,22 @@
 spring:
   application:
     name: client_server
+
+  threads:
+    virtual:
+      enabled: true
+
+  security:
+    oauth2:
+      client:
+        provider:
+          oauth2_provider_server:
+            token-uri: http://localhost:9000/login/oauth2/code/{registrationId}
+        registration:
+          oauth2_provider_server:
+            provider: oauth2_provider_server
+            client-id: golf-client
+            client-secret: golf-secret
+            authorization-grant-type: client_credentials
+            scope:
+              - read

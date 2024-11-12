@@ -1,3 +1,21 @@
 spring:
   application:
     name: resource_server
+
+  threads:
+    virtual:
+      enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+
+server:
+  port: 8081
+
+logging:
+  level:
+    web: debug
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: TRACE
